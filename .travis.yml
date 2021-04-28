@@ -1,0 +1,38 @@
+language: python
+
+dist: focal
+
+python:
+  - '3.8'
+
+install:
+  - pip install -r requirements.txt
+
+services:
+  - postgresql
+
+addons:
+  postgresql: "12"
+  apt:
+    packages:
+    - postgresql-12
+    - postgresql-client-12
+
+before_script:
+  - psql -c "create database booking;" -U travis -p 5433
+  - psql -c "create user booking with encrypted password 'booking';" -U travis -p 5433
+  - psql -c "grant all privileges on database booking to booking;" -U travis -p 5433
+  - psql -c "alter user booking CREATEDB;" -U travis -p 5433
+
+env:
+  global:
+  - PGPORT=5433
+  - PGUSER=travis
+
+script:
+  - flake8 booking
+  - cd booking
+  - coverage run --source='.' manage.py test
+
+after_success:
+  - codecov
