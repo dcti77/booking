@@ -10,3 +10,6 @@ class User(AbstractUser):
     SEX_CHOICE = [("male", "male"), ("female", "female")]
 
     sex = models.CharField(max_length=7, choices=SEX_CHOICE, default="male")
+
+
+
