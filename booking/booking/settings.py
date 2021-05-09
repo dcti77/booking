@@ -40,11 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
-<<<<<<< HEAD
     'reservation.apps.ReservationConfig',
-=======
-    "hotels.apps.HotelsConfig"
->>>>>>> f1a2f8883930dd3314f8e33cf2747ac85f6748ca
+    "hotels.apps.HotelsConfig",
 ]
 
 MIDDLEWARE = [
