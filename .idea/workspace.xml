@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bfb6fe6d-d3e9-4072-995b-1682d1ea900b" name="Default Changelist" comment="Module Reservation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/booking/booking/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking/booking/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking/reservation/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking/reservation/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking/reservation/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking/reservation/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
