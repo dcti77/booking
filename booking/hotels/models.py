@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Hotel(models.Model):
     name = models.CharField(max_length=200)
     country = models.CharField(max_length=200)
@@ -7,4 +8,3 @@ class Hotel(models.Model):
     beds = models.IntegerField()
     price = models.FloatField
     rank = models.IntegerField()
-
