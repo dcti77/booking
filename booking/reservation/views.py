@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
 
-def index(request):
+def reservation_home(request):
     return render(request, 'reservation/booking_hotel.html')
