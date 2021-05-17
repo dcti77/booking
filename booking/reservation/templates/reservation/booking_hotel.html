@@ -8,20 +8,34 @@
     <title><Бронирование отеля></title>
 </head>
 <body>
-    <h1>Бронирование отеля</h1>
-    <form name="Country" action="" method="post">
-        <label for="country">Введите страну:</label><input type="text" id="country" placeholder="Отель..."/>
-        <br /><br />
-        <label for="hotel">Введите гостиницу:</label><input type="text" id="hotel" placeholder="Гостиница..."/>
-        <br /><br />
-        <label for="human">Введите количество человек:</label><input type="number" id="human" placeholder="Количество человек..."/>
-        <br /><br />
-        <label for="nights">Введите количество ночей:</label><input type="number" id="nights" placeholder="Количество ночей..."/>
-        <br /><br />
-        <label for="date">Введите дату бронирования:</label><input type="date" id="date" placeholder="Дата бронирования..."/>
-        <br /><br />
-        <label for="rating">Введите рейтинг:</label><input type="text" id="rating" placeholder="Рейтинг..."/>
+    {% block content %}
+    <h1>booking приветствует Вас</h1>
+        <form action="{% url 'reservation_home' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Подобрать отель</button>
     </form>
+    {% endblock content %}
+
+
+
+
+<!--    <form name="Country" method="post">-->
+<!--        {% csrf_token%}-->
+<!--        <label for="country">Введите страну:</label><input type="text" id="country" placeholder="Отель..."/>-->
+<!--        <br /><br />-->
+<!--        <label for="hotel">Введите гостиницу:</label><input type="text" id="hotel" placeholder="Гостиница..."/>-->
+<!--        <br /><br />-->
+<!--        <label for="human">Введите количество человек:</label><input type="number" id="human" placeholder="Количество человек..."/>-->
+<!--        <br /><br />-->
+<!--        <label for="nights">Введите количество ночей:</label><input type="number" id="nights" placeholder="Количество ночей..."/>-->
+<!--        <br /><br />-->
+<!--        <label for="date">Введите дату бронирования:</label><input type="date" id="date" placeholder="Дата бронирования..."/>-->
+<!--        <br /><br />-->
+<!--        <label for="rating">Введите рейтинг:</label><input type="text" id="rating" placeholder="Рейтинг..."/>-->
+<!--        <br /><br />-->
+<!--        <button class="btn btn-success" type="submit">Подобрать отель</button>-->
+<!--    </form>-->
 
 </body>
 </html>
