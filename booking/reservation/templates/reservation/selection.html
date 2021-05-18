@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Бронирование отеля</title>
+</head>
+<body>
+    <h1>booking приветствует Вас</h1>
+    <p>Подобраны отели согласно вашего запроса</p>
+    {% for item in selection %}
+    <div>
+        <p>{{ item.country }}</p>
+        <p>{{ item.name }}</p>
+        <p>{{ item.rank }}</p>
+    </div>
+    <hr>
+    {% endfor %}
+</body>
+</html>

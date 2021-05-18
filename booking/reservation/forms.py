@@ -1,11 +1,10 @@
 from django import forms
-from .models import *
 
 
 class HotelSearch(forms.Form):
-    country = models.CharField(max_length=200)
-    name = models.CharField(max_length=200)
-    number_of_person = models.PositiveIntegerField()
-    umber_of_nights = models.PositiveIntegerField()
-    booking_date = models.DateField()
-    rank = models.IntegerField()
+    country = forms.CharField(max_length=200, label="Страна")
+    name = forms.CharField(max_length=200, label="Название гостиницы", required=False)
+    number_of_person = forms.IntegerField(label="Количество человек")
+    number_of_nights = forms.IntegerField(label="Количество ночей")
+    booking_date = forms.DateField(label="Дата бронирования")
+    rank = forms.IntegerField(label="Рейтинг", required=False)
