@@ -1,0 +1,21 @@
+<!--{% for obj in hotel_object_list %}-->
+<!--    <span>{{ obj.name }} </span>-->
+<!--{% endfor %}-->
+
+<h1> Hotels list<h1>
+    <h2></h2>
+{% for h in hotels %}
+    <tr class='success'>
+        <td>{{ h.id }}</td>
+        <td>{{ h.name }}</td>
+        <td>{{ h.country }}</td>
+        <td>{{ h.town }}</td>
+        <td>{{ h.beds }}</td>
+        <td>{{ h.price }}</td>
+        <td>{{ h.rank }}</td>
+        <br/>
+        <br/>
+    </tr>
+{% endfor %}
+
+
