@@ -6,5 +6,5 @@ class Hotel(models.Model):
     country = models.CharField(max_length=200)
     town = models.CharField(max_length=200)
     beds = models.IntegerField()
-    price = models.FloatField
+    # price = models.FloatField
     rank = models.IntegerField()
