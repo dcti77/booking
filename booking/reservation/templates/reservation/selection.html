@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="ru">
+{% load i18n %}
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Бронирование отеля</title>
+    <title>{% trans 'Hotel reservation' %}</title>
 </head>
 <body>
-    <h1>booking приветствует Вас</h1>
-    <p>Подобраны отели согласно вашего запроса</p>
+        <h1>{% trans 'booking greets you' %}</h1>
+    <p>{% trans 'Selected hotels according to your request' %}</p>
     {% for item in selection %}
     <div>
         <p>{{ item.country }}</p>

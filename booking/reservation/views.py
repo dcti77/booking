@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import HotelSearch
 from hotels.models import Hotel
+from django.utils.translation import gettext as _
 
 
 def reservation_home(request):
@@ -12,6 +13,7 @@ def reservation_home(request):
         form = HotelSearch()
     return render(request, 'reservation/booking_hotel.html', {'form': form})
 
+
 def search(request):
-    selection = Hotel.objects.filter(country=request.GET['country'])
+    selection = _(Hotel.objects.filter(country=request.GET['country']))
     return render(request, 'reservation/selection.html', {'selection': selection})
