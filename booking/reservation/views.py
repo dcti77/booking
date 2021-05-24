@@ -15,5 +15,5 @@ def reservation_home(request):
 
 
 def search(request):
-    selection = _(Hotel.objects.filter(country=request.GET['country']))
+    selection = Hotel.objects.filter(country=request.GET['country'])
     return render(request, 'reservation/selection.html', {'selection': selection})
