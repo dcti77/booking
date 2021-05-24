@@ -20,6 +20,8 @@ from django.conf.urls.i18n import i18n_patterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hotels/', include('hotels.urls')),
+    path('users/', include('users.urls')),
+    path('users/', include('django.contrib.auth.urls'))
 ]
 urlpatterns += i18n_patterns(
     path('reservation/', include('reservation.urls')),
