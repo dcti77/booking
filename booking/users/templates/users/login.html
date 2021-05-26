@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load i18n %}
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>{% trans 'Login' %}</title>
+    <style>
+    .bord {
+        border: 1.5px solid blue;
+        padding: 0px 0px 10px 0px;
+        margin: 20% 40%;
+        }
+    .center {
+        text-align: center;
+        padding: 2px;
+        }
+    .right {
+        text-align: right;
+        padding: 2px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Login</h2>
+
+    <div class="bord">
+    <h2 class="center">{% trans 'Login' %}</h2>
     <form method="post" action="{% url 'login'}">
         {% csrf_token %}
-        {{ form }}
-        <input type = "submit" value = 'Log in'>
+            <div class="center">
+                <input type="text" name="username" placeholder="{{ form.username.label }}" required>
+            </div>
+            <div class="center">
+                <input type="password" name="password" placeholder="{{ form.password.label }}" required>
+            </div>
+            <div class="center">
+            <input type = "submit" value = "{% trans 'Log in' %}">
+            </div>
     </form>
-    <a href="/users/reset_password">Forget password</a>
+        <div class="right">
+            <a href="/users/reset_password">"{% trans 'Forget password' %}"</a>
+        </div>
+    </div>
 </body>
 </html>

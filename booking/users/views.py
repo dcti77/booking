@@ -4,7 +4,6 @@ from django.http import HttpResponse
 from .forms import LoginForm, CreateUserForm
 
 
-# Login
 def user_registration_view(request):
     if request.method == 'POST':
         form = CreateUserForm(request.POST)

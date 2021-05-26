@@ -21,9 +21,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('hotels/', include('hotels.urls')),
     path('users/', include('users.urls')),
-    path('users/', include('django.contrib.auth.urls'))
+    path('users/', include('django.contrib.auth.urls')),
+    path('i18n/', include ('django.conf.urls.i18n'))
 ]
 urlpatterns += i18n_patterns(
     path('reservation/', include('reservation.urls')),
+    path('users/', include('users.urls')),
     prefix_default_language=False
 )

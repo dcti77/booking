@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load i18n %}
 <head>
     <meta charset="UTF-8">
-    <title>Registration</title>
+    <title>{% trans 'Registration' %}</title>
+    <style>
+        .bord {
+        border: 1.5px solid blue;
+        padding: 0px 0px 5px 0px;
+        margin: 15% 40%;
+        }
+        .center {
+        text-align: center;
+        padding: 2px;
+        }
+        .left {
+        text-align: left;
+        padding: 2px;
+    </style>
 </head>
 <body>
-    <h2>Registration</h2>
-    <form method="post" action="{% url 'registration' %}">
+    <div class ="bord">
+    <div class="center">
+    <h2>{% trans 'Registration' %}</h2>
+    </div>
+        <form method="post" action="{% url 'registration' %}">
         {% csrf_token %}
-        {{ form }}
-        <input type = "submit" value ="Register">
-    </form>
+        <div class="left">
+            <input type="text" name="username" placeholder="{{ form.username.label }}" required>
+        </div>
+        <div class="left">
+            <input type="email" name="email" placeholder="{{ form.email.label }}" required>
+        </div>
+        <div class="left">
+            <input type="text" name="first_name" placeholder="{{ form.first_name.label }}" required>
+        </div>
+        <div class="left">
+            <input type="text" name="last_name" placeholder="{{ form.last_name.label }}" required>
+        </div>
+        <div class="left">
+            <input type="text" name="phone" placeholder="{{ form.phone.label }}" required>
+        </div>
+        <div class="left">
+            <select>
+            <option disabled>Select your gender</option>
+            <option selected value="male">male</option>
+            <option value="female">female</option>
+        </select>
+        </div>
+<!--       {{ form }}-->
+        <div class="center">
+            <input type = "submit" value ='{% trans "Register" %}'>
+        </div>
+        </form>
+    </div>
 </body>
 </html>
