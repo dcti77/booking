@@ -18,3 +18,38 @@
     {% endfor %}
 </body>
 </html>
+
+<!--{% load i18n %}-->
+<!--{% load static %}-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport"-->
+<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <title>{% trans 'Hotel reservation' %}</title>-->
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" href="{%static 'reservation/css/reservation.css' %}">-->
+<!--    <script src="https://kit.fontawesome.com/1f5590dc63.js" crossorigin="anonymous"></script>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <aside>-->
+<!--        <h3>{% trans 'Navigation' %}</h3>-->
+<!--        <ul>-->
+<!--            <a href=""><li><i class="fas fa-home"></i>Home</li></a>-->
+<!--            <a href="{% url 'reservation_home' %}"><li><i class="fas fa-hotel"></i>Search for a hotel</li></a>-->
+<!--        </ul>-->
+<!--    </aside>-->
+<!--    <main>-->
+<!--        {% block content %}-->
+<!--    <h1>{% trans 'booking greets you' %}</h1>-->
+<!--    <form action="{% url 'reservation_home' %}" method="post">-->
+<!--        {% csrf_token %}-->
+<!--        {{ form.as_p }}-->
+<!--        <button type="submit">{% trans 'Find a hotel' %}</button>-->
+<!--    </form>-->
+<!--    {% endblock content %}-->
+<!--    </main>-->
+<!--</body>-->
+<!--</html>-->
