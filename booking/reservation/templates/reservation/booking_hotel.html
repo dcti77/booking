@@ -5,12 +5,10 @@
 {% block title %}{% trans 'Hotel reservation' %}{% endblock %}
 
 {% block content %}
-    <div class="features">
-        <h1>{% trans 'booking greets you' %}</h1>
-        <form action="{% url 'reservation_home' %}" method="post">
+    <h1>{% trans 'booking greets you' %}</h1>
+    <form action="{% url 'reservation_home' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">{% trans 'Find a hotel' %}</button>
-        </form>
-    </div>
+    </form>
 {% endblock %}

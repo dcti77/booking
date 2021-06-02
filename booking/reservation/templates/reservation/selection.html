@@ -1,55 +1,28 @@
-<!DOCTYPE html>
-{% load i18n %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% trans 'Hotel reservation' %}</title>
-</head>
-<body>
-        <h1>{% trans 'booking greets you' %}</h1>
-    <p>{% trans 'Selected hotels according to your request' %}</p>
-    {% for item in selection %}
-    <div>
-        <p>{{ item.country }}</p>
-        <p>{{ item.name }}</p>
-        <p>{{ item.rank }}</p>
-    </div>
-    <hr>
-    {% endfor %}
-</body>
-</html>
+{% extends 'reservation/blank.html' %}
 
-<!--{% load i18n %}-->
-<!--{% load static %}-->
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport"-->
-<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-<!--    <title>{% trans 'Hotel reservation' %}</title>-->
-<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">-->
-<!--    <link rel="stylesheet" href="{%static 'reservation/css/reservation.css' %}">-->
-<!--    <script src="https://kit.fontawesome.com/1f5590dc63.js" crossorigin="anonymous"></script>-->
-<!--</head>-->
-<!--<body>-->
-<!--    <aside>-->
-<!--        <h3>{% trans 'Navigation' %}</h3>-->
-<!--        <ul>-->
-<!--            <a href=""><li><i class="fas fa-home"></i>Home</li></a>-->
-<!--            <a href="{% url 'reservation_home' %}"><li><i class="fas fa-hotel"></i>Search for a hotel</li></a>-->
-<!--        </ul>-->
-<!--    </aside>-->
-<!--    <main>-->
-<!--        {% block content %}-->
-<!--    <h1>{% trans 'booking greets you' %}</h1>-->
-<!--    <form action="{% url 'reservation_home' %}" method="post">-->
-<!--        {% csrf_token %}-->
-<!--        {{ form.as_p }}-->
-<!--        <button type="submit">{% trans 'Find a hotel' %}</button>-->
-<!--    </form>-->
-<!--    {% endblock content %}-->
-<!--    </main>-->
-<!--</body>-->
-<!--</html>-->
+{% load i18n %}
+
+{% block title %}{% trans 'Hotel reservation' %}{% endblock %}
+
+{% block content %}
+        <h1>{% trans 'booking greets you' %}</h1>
+        <p>{% trans 'Selected hotels according to your request' %}</p>
+            <div class="row">
+                <div class="col-md-2" style="background-color: #ff9999">{% trans 'Country' %}</div>
+                <div class="col-md-2" style="background-color: #99CCFF">{% trans 'Name' %}</div>
+                <div class="col-md-2" style="background-color: #00CC99">{% trans 'Rank' %}</div>
+                <div class="col-md-2" style="background-color: #ff9999">{% trans 'Town' %}</div>
+                <div class="col-md-2" style="background-color: #99CCFF">{% trans 'Beds' %}</div>
+            </div>
+        <br>
+        {% for item in selection %}
+            <div class="row">
+                <div class="col-md-2" style="background-color: #ff9999">{{ item.country }}</div>
+                <div class="col-md-2" style="background-color: #99CCFF">{{ item.name }}</div>
+                <div class="col-md-2" style="background-color: #00CC99">{{ item.rank }}</div>
+                <div class="col-md-2" style="background-color: #ff9999">{{ item.town }}</div>
+                <div class="col-md-2" style="background-color: #99CCFF">{{ item.beds }}</div>
+                <div class="col-md-2"><a href="{% url 'basket' item.id %}" class="btn btn-info" role="button">{% trans 'To book' %}</a></div>
+            </div>
+        {% endfor %}
+{% endblock %}

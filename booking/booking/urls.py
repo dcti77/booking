@@ -28,5 +28,4 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     path('reservation/', include('reservation.urls')),
     path('users/', include('users.urls')),
-    prefix_default_language=False
 )
