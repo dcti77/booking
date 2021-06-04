@@ -1,21 +1,32 @@
-<!--{% for obj in hotel_object_list %}-->
-<!--    <span>{{ obj.name }} </span>-->
-<!--{% endfor %}-->
-
-<h1> Hotels list<h1>
-    <h2></h2>
-{% for h in hotels %}
-    <tr class='success'>
-        <td>{{ h.id }}</td>
-        <td>{{ h.name }}</td>
-        <td>{{ h.country }}</td>
-        <td>{{ h.town }}</td>
-        <td>{{ h.beds }}</td>
-        <td>{{ h.price }}</td>
-        <td>{{ h.rank }}</td>
-        <br/>
-        <br/>
-    </tr>
-{% endfor %}
-
-
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hotels list</title>
+    <link rel="stylesheet" href="{% static 'hotels/stylesheet.css'%}" type="text/css">
+</head>
+<body>
+    <h1 class="name"> Hotels list</h1>
+            <table class="hotels">
+                    <tr>
+                        <th class="headlines">ID</th>
+                        <th class="headlines" >Name</th>
+                        <th class="headlines" >Country</th>
+                        <th class="headlines">City</th>
+                        <th class="headlines">Beds</th>
+                        <th class="headlines">Rank</th>
+                    </tr>
+                {% for h in hotels %}
+                    <tr>
+                        <td class="information">{{ h.id }}</td>
+                        <td class="information">{{ h.name }}</td>
+                        <td class="information">{{ h.country }}</td>
+                        <td class="information">{{ h.town }}</td>
+                        <td class="information">{{ h.beds }}</td>
+                        <td class="information">{{ h.rank }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+</body>
+</html>

@@ -1,0 +1,22 @@
+h1.name {
+    text-align: center;
+}
+table.hotels {
+    width: 100%;
+    font-family: sans-serif;
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 5px;
+    background: #ece9e0;
+    color: #656665;
+    border: 16px solid #ece9e0;
+    border-radius: 20px;
+}
+th.headlines {
+    font-size: 18px;
+    padding: 10px;
+}
+td.information {
+    background: #f5d7bf;
+    padding: 10px;
+}
