@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load i18n %}
+<head>
+    <meta charset="UTF-8">
+    <title>Profile editor</title>
+</head>
+{% block content %}
+<h2>Profile Editor</h2>
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type = "submit" value = "{% trans 'Edit' %}">
+</form>
+{% endblock content %}

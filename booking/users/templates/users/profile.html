@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load i18n %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans 'User profile' %}</title>
+
+</head>
+
+{% block content %}
+
+<h2>{% trans 'User profile' %}</h2>
+<div class = col8>
+    <div>
+        {{ profile.username }}
+    </div>
+    <div>
+        {{ profile.first_name }}
+     </div>
+    <div>
+        {{ profile.last_name }}
+    </div>
+    <div>
+        {{ profile.email }}
+     </div>
+    <div>
+        {{ profile.phone }}
+    </div>
+    <div>
+        {{ profile.sex }}
+    </div>
+    <div>
+        {{ profile.country }}
+    </div>
+        <div>
+        {{ profile.town }}
+    </div>
+</div>
+    <div>
+        <a href="{% url 'edit_profile' %}">"{% trans 'Edit profile' %}"</a>
+    </div>
+{% endblock content %}
