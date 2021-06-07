@@ -2,16 +2,17 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import LoginForm, CreateUserForm
+from .models import User
 
 
 def user_registration_view(request):
+    form = CreateUserForm()
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('login')
-    else:
-        form = CreateUserForm()
+
     return render(request, 'users/registration.html', {'form': form})
 
 
@@ -33,6 +34,10 @@ def user_login_view(request):
     }
     return render(request, 'users/login.html', context)
 
+def user_profile_view(request):
+    user_profile = User.objects.get(id=request.user.id)
+    context = {'profile': user_profile}
+    return render(request, 'profile', context)
 
 # def user_forgot_pass_view(PasswordResetView):
 #     if request.method == 'POST':

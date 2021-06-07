@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-24 21:42+0300\n"
+"POT-Creation-Date: 2021-05-26 19:35+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,45 +20,52 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: forms.py:20
+#: users/forms.py:20
 msgid "Username"
 msgstr "Никнейм"
 
-#: forms.py:21
+#: users/forms.py:21
 msgid "Password"
 msgstr "Пароль"
 
-#: templates/users/login.html:6 templates/users/login.html:9
+#: users/templates/users/login.html:6 users/templates/users/login.html:26
 msgid "Login"
 msgstr "Вход"
 
-#: templates/users/login.html:13 templates/users/password_reset_complete.html:6
+#: users/templates/users/login.html:36
+#: users/templates/users/password_reset_complete.html:6
 msgid "Log in"
 msgstr "Вход"
 
-#: templates/users/password_reset_complete.html:2
+#: users/templates/users/login.html:40
+#, fuzzy
+#| msgid "Enter new password"
+msgid "Forget password"
+msgstr "Введите новый пароль"
+
+#: users/templates/users/password_reset_complete.html:2
 msgid "Password reset complete"
 msgstr "Сброс пароля успешно выполнен"
 
-#: templates/users/password_reset_complete.html:4
+#: users/templates/users/password_reset_complete.html:4
 msgid "Your password has been set. You may go ahead and log in now."
 msgstr "Ваш пароль был установлен. Теперь вы можете выполнить вход"
 
-#: templates/users/password_reset_confirm.html:2
+#: users/templates/users/password_reset_confirm.html:2
 msgid "Enter new password"
 msgstr "Введите новый пароль"
 
-#: templates/users/password_reset_confirm.html:4
+#: users/templates/users/password_reset_confirm.html:4
 msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
 msgstr "Пожалуйста, ввеедите новый пароль дважды"
 
-#: templates/users/password_reset_done.html:2
+#: users/templates/users/password_reset_done.html:2
 msgid "Password reset sent"
 msgstr "Сброс пароля отправлен"
 
-#: templates/users/password_reset_done.html:5
+#: users/templates/users/password_reset_done.html:5
 msgid ""
 "We’ve emailed you instructions for setting your password, if an account "
 "exists with the email you entered. You should receive them shortly."
@@ -66,7 +73,7 @@ msgstr ""
 "Мы отправли вам на email инструкции по восстановлению пароля, если аккаунт с "
 "таким email'ом существует"
 
-#: templates/users/password_reset_done.html:7
+#: users/templates/users/password_reset_done.html:7
 msgid ""
 "If you don’t receive an email, please make sure you’ve entered the address "
 "you registered with, and check your spam folder."
@@ -74,11 +81,11 @@ msgstr ""
 "Если вы не получили письмо, пожалуйста убедитесь что вы правильно ввели "
 "электронный адрес на который регистрировались, и проверьте спам"
 
-#: templates/users/password_reset_form.html:2
+#: users/templates/users/password_reset_form.html:2
 msgid "Password reset"
 msgstr "Сброс пароля"
 
-#: templates/users/password_reset_form.html:4
+#: users/templates/users/password_reset_form.html:4
 msgid ""
 "Forgotten your password? Enter your email address below, and we’ll email "
 "instructions for setting a new one."
@@ -86,6 +93,13 @@ msgstr ""
 "Забыли пароль? Введите ваш email и мы отправим вам письмо с инструкциями по "
 "восстановлению"
 
-#: templates/users/registration.html:6 templates/users/registration.html:9
+#: users/templates/users/registration.html:6
+#: users/templates/users/registration.html:25
 msgid "Registration"
+msgstr "Регистрация"
+
+#: users/templates/users/registration.html:53
+#, fuzzy
+#| msgid "Registration"
+msgid "Register"
 msgstr "Регистрация"

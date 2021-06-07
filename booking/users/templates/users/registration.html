@@ -1,58 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 {% load i18n %}
 <head>
     <meta charset="UTF-8">
     <title>{% trans 'Registration' %}</title>
-    <style>
-        .bord {
-        border: 1.5px solid blue;
-        padding: 0px 0px 5px 0px;
-        margin: 15% 40%;
-        }
-        .center {
-        text-align: center;
-        padding: 2px;
-        }
-        .left {
-        text-align: left;
-        padding: 2px;
-    </style>
+
 </head>
-<body>
-    <div class ="bord">
-    <div class="center">
+{% block content %}
+
     <h2>{% trans 'Registration' %}</h2>
-    </div>
-        <form method="post" action="{% url 'registration' %}">
+    <div class="form-group">
+        <form method="post" action="">
         {% csrf_token %}
-        <div class="left">
-            <input type="text" name="username" placeholder="{{ form.username.label }}" required>
-        </div>
-        <div class="left">
-            <input type="email" name="email" placeholder="{{ form.email.label }}" required>
-        </div>
-        <div class="left">
-            <input type="text" name="first_name" placeholder="{{ form.first_name.label }}" required>
-        </div>
-        <div class="left">
-            <input type="text" name="last_name" placeholder="{{ form.last_name.label }}" required>
-        </div>
-        <div class="left">
-            <input type="text" name="phone" placeholder="{{ form.phone.label }}" required>
-        </div>
-        <div class="left">
-            <select>
-            <option disabled>Select your gender</option>
-            <option selected value="male">male</option>
-            <option value="female">female</option>
-        </select>
-        </div>
-<!--       {{ form }}-->
-        <div class="center">
-            <input type = "submit" value ='{% trans "Register" %}'>
-        </div>
+            <div>
+                <input type="text" class="form-control" id="username" name="username" placeholder="{{ form.username.label }}" required>
+            </div>
+            <div>
+                <input type="email" class="form-control" name="email" placeholder="{{ form.email.label }}" required>
+            </div>
+            <div>
+                <input type="text" class="form-control" name="first_name" placeholder="{{ form.first_name.label }}" required>
+            </div>
+            <div>
+                <input type="text" class="form-control" name="last_name" placeholder="{{ form.last_name.label }}" required>
+            </div>
+            <div>
+                <input type="text" class="form-control" name="phone" placeholder="{{ form.phone.label }}" required>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sex" id="inlineRadio1" value="male">
+                <label class="form-check-label" for="inlineRadio1">{{ form.sex.0 }}</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sex" id="inlineRadio2" value="female">
+                <label class="form-check-label" for="inlineRadio2">{{ form.sex.1 }}</label>
+            </div>
+            <div class="input-group mb-3">
+                <input type="password" class="form-control" name="password1" placeholder="{{ form.password1.label }}" required>
+            </div>
+            <div class="input-group mb-3">
+                <input type="password" class="form-control" name="password2" placeholder="{{ form.password2.label }}" required>
+            </div>
+            <div>
+                <input type = "submit" value ='{% trans "Register" %}'>
+            </div>
+
         </form>
     </div>
-</body>
-</html>
+{% endblock content %}

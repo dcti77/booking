@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 {% load i18n %}
 <head>
+
     <meta charset="UTF-8">
     <title>{% trans 'Login' %}</title>
     <style>
@@ -20,11 +20,10 @@
         }
     </style>
 </head>
-<body>
-
+{% block content %}
     <div class="bord">
     <h2 class="center">{% trans 'Login' %}</h2>
-    <form method="post" action="{% url 'login'}">
+    <form method="post" action="">
         {% csrf_token %}
             <div class="center">
                 <input type="text" name="username" placeholder="{{ form.username.label }}" required>
@@ -37,8 +36,10 @@
             </div>
     </form>
         <div class="right">
-            <a href="/users/reset_password">"{% trans 'Forget password' %}"</a>
+            <a href="{% url 'reset_password' %}">"{% trans 'Forget password' %}"</a>
+        </div>
+        <div class="right">
+             <a href="{% url 'registration' %}">"{% trans 'Registration' %}"</a>
         </div>
     </div>
-</body>
-</html>
+{% endblock content %}
