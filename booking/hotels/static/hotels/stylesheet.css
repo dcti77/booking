@@ -7,9 +7,9 @@ table.hotels {
     text-align: left;
     border-collapse: separate;
     border-spacing: 5px;
-    background: #ece9e0;
-    color: #656665;
-    border: 16px solid #ece9e0;
+    background: #efeee4;
+    color: #333333;
+    border: 2px solid #ceced2;
     border-radius: 20px;
 }
 th.headlines {
@@ -17,6 +17,6 @@ th.headlines {
     padding: 10px;
 }
 td.information {
-    background: #f5d7bf;
+    background: #b8ecf5;
     padding: 10px;
 }

@@ -1,0 +1,9 @@
+<h1>Search Results</h1>
+
+<ul>
+  {% for hotels in object_list %}
+    <li>
+      {{ hotels.name }}, {{ hotels.country }}
+    </li>
+  {% endfor %}
+</ul>
