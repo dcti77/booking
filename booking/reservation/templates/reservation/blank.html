@@ -16,7 +16,7 @@
     <aside>
         <h3>{% trans 'Navigation' %}</h3>
         <ul>
-            <a href=""><li><i class="fas fa-home"></i>{% trans 'Home' %}</li></a>
+            <a href="{% url 'basket' %}"><li><i class="fas fa-home"></i>{% trans 'Basket' %}</li></a>
             <a href="{% url 'reservation_home' %}"><li><i class="fas fa-hotel"></i>{% trans 'Search for a hotel' %}</li></a>
         </ul>
     </aside>

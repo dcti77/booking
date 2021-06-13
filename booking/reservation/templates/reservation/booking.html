@@ -1,0 +1,18 @@
+{% extends 'reservation/blank.html' %}
+
+{% load i18n %}
+
+{% block title %}{% trans 'booking greets you' %}{% endblock title %}
+
+{% block content %}
+<h1>{% trans 'booking greets you' %}</h1>
+<br>
+<h3>{{ hotel.name }}</h3>
+<br>
+<p>Number of free seats - {{ hotel.beds }}</p>
+    <form action="{% url 'booking' hotel.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="I'm booking">
+    </form>
+{% endblock content %}

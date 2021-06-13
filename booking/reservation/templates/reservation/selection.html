@@ -22,7 +22,7 @@
                 <div class="col-md-2" style="background-color: #00CC99">{{ item.rank }}</div>
                 <div class="col-md-2" style="background-color: #ff9999">{{ item.town }}</div>
                 <div class="col-md-2" style="background-color: #99CCFF">{{ item.beds }}</div>
-                <div class="col-md-2"><a href="{% url 'basket' item.id %}" class="btn btn-info" role="button">{% trans 'To book' %}</a></div>
+                <div class="col-md-2"><a href="{% url 'booking' item.pk %}" class="btn btn-info" role="button">{% trans 'To book' %}</a></div>
             </div>
         {% endfor %}
 {% endblock %}
