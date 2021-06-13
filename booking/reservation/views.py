@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import HotelSearchForm, HotelReservationForm
 from hotels.models import Hotel
+from .models import Basket
 
 
 def reservation_home(request):
@@ -23,7 +24,8 @@ def booking(request, hotel_id):
     if request.method == 'POST':
         form = HotelReservationForm(request.POST)
         if form.is_valid():
-            return redirect('basket')
+            Basket.objects.create(**form.cleaned_data)
+            return render(request, 'reservation/basket.html')
     else:
         form = HotelReservationForm()
     return render(request, 'reservation/booking.html', {'hotel': hotel, 'form': form})

@@ -10,12 +10,13 @@ class Reservation(models.Model):
     booking_date = models.DateField()
 
     def __str__(self):
-        return self.country, self.hotel
+        return "Booking"
 
 
 class Basket(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
+    reservation = models.ForeignKey(Reservation, on_delete=models.CASCADE)
 
     def __str__(self):
         return "Basket"
