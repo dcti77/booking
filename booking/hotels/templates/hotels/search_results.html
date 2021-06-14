@@ -1,9 +1,32 @@
-<h1>Search Results</h1>
-
-<ul>
-  {% for hotels in object_list %}
-    <li>
-      {{ hotels.name }}, {{ hotels.country }}
-    </li>
-  {% endfor %}
-</ul>
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hotels list</title>
+    <link rel="stylesheet" href="{% static 'hotels/stylesheet.css'%}" type="text/css">
+</head>
+<body>
+    <h1 class="name"> РЕЗУЛЬТАТЫ ПОИСКА</h1>
+            <table class="hotels">
+                    <tr>
+                        <th class="headlines">ID</th>
+                        <th class="headlines" >Name</th>
+                        <th class="headlines" >Country</th>
+                        <th class="headlines">City</th>
+                        <th class="headlines">Beds</th>
+                        <th class="headlines">Rank</th>
+                    </tr>
+                {% for hotels in object_list %}
+                    <tr>
+                        <td class="information">{{ hotels.id }}</td>
+                        <td class="information">{{ hotels.name }}</td>
+                        <td class="information">{{ hotels.country }}</td>
+                        <td class="information">{{ hotels.town }}</td>
+                        <td class="information">{{ hotels.beds }}</td>
+                        <td class="information">{{ hotels.rank }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+</body>
+</html>
