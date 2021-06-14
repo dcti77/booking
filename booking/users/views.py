@@ -6,6 +6,7 @@ from .forms import LoginForm, CreateUserForm, UserProfileEditForm
 from .models import User
 
 
+
 def user_registration_view(request):
     form = CreateUserForm()
     if request.method == 'POST':
@@ -39,13 +40,16 @@ def user_login_view(request):
 @login_required(login_url='users/login.html')
 def user_profile_view(request):
     user_profile = User.objects.get(id=request.user.id)
-    context = {'profile': user_profile}
+
+    context = {
+        'profile': user_profile,
+    }
     return render(request, 'users/profile.html', context)
 
 
 @login_required(login_url='users/login.html')
 def user_profile_edit(request):
-    form = UserProfileEditForm(request.POST, instance=request.user)
+    form = UserProfileEditForm(request.POST, request.FILES, instance=request.user)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
@@ -56,3 +60,5 @@ def user_profile_edit(request):
 
 def user_logout(request):
     logout(request)
+
+

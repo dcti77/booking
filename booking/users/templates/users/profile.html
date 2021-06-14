@@ -9,32 +9,35 @@
 {% block content %}
 
 <h2>{% trans 'User profile' %}</h2>
-<div class = col8>
     <div>
-        {{ profile.username }}
+        {% if profile.photo %}
+        <img src="{{ profile.photo.url }}">
+        {% endif %}
     </div>
     <div>
-        {{ profile.first_name }}
-     </div>
-    <div>
-        {{ profile.last_name }}
+                        <h3>{{ profile.first_name }} {{ profile.last_name }}</h3>
+                        <h3>{% trans 'Username' %} {{ profile.username }}</h3>
+
+                        {% if profile.country %}
+                        <p>{% trans 'Country' %} {{ profile.country }}</p>
+                        {% endif %}
+
+                        {% if profile.town %}
+                        <p>{% translate 'Town' %} {{ profile.town }}</p>
+                        {% endif %}
+
+                        {% if profile.phone %}
+                        <p>{% trans 'Phone number' %} {{ profile.phone }}</p>
+                        {% endif %}
+
+                        {% if profile.card %}
+                        <p>{% trans 'Card' %} {{ profile.card }}</p>
+                        {% endif %}
+
+                        {% if profile.sex %}
+                        <p>{% translate 'Sex' %} {{ profile.sex }}</p>
+                        {% endif %}
     </div>
-    <div>
-        {{ profile.email }}
-     </div>
-    <div>
-        {{ profile.phone }}
-    </div>
-    <div>
-        {{ profile.sex }}
-    </div>
-    <div>
-        {{ profile.country }}
-    </div>
-        <div>
-        {{ profile.town }}
-    </div>
-</div>
     <div>
         <a href="{% url 'edit_profile' %}">"{% trans 'Edit profile' %}"</a>
     </div>
