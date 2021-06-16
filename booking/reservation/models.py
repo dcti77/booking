@@ -8,15 +8,11 @@ class Reservation(models.Model):
     number_of_person = models.PositiveIntegerField()
     number_of_nights = models.PositiveIntegerField()
     booking_date = models.DateField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, null=True)
+    card = models.DecimalField(max_digits=16, decimal_places=0, null=True)
+    valid_thru = models.DateField(null=True)
+    finish = models.BooleanField(null=True)
 
     def __str__(self):
         return "Booking"
-
-
-class Basket(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
-    reservation = models.ForeignKey(Reservation, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return "Basket"

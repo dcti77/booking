@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-26 21:46+0300\n"
+"POT-Creation-Date: 2021-06-16 19:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,64 +20,86 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: forms.py:6 templates/reservation/selection.html:13
+#: forms.py:6 templates/reservation/selection.html:11
 msgid "Country"
 msgstr "Страна"
 
-#: forms.py:7 templates/reservation/selection.html:14
+#: forms.py:7 templates/reservation/selection.html:12
 msgid "Name"
 msgstr "Название отеля"
 
-#: forms.py:8
+#: forms.py:8 forms.py:15
 msgid "Number_of_person"
 msgstr "Количество человек"
 
-#: forms.py:9
+#: forms.py:9 forms.py:16
 msgid "Number_of_nights"
 msgstr "Количество ночей"
 
-#: forms.py:10
+#: forms.py:10 forms.py:17
 msgid "Booking_date"
 msgstr "Дата бронирования"
 
-#: forms.py:11 templates/reservation/selection.html:15
+#: forms.py:11 templates/reservation/selection.html:13
 msgid "Rank"
 msgstr "Рейтинг"
+
+#: forms.py:18
+msgid "Card"
+msgstr "Номер карты"
+
+#: forms.py:19
+msgid "Valid_thru"
+msgstr "Срок действия"
+
+#: templates/reservation/basket.html:5 templates/reservation/basket.html:8
+#: templates/reservation/booking.html:5 templates/reservation/booking.html:8
+#: templates/reservation/booking_hotel.html:8
+#: templates/reservation/selection.html:8
+msgid "booking greets you"
+msgstr "booking приветсвует Вас"
+
+#: templates/reservation/basket.html:11
+msgid "Cansel booking"
+msgstr "Отменить бронирование"
 
 #: templates/reservation/blank.html:17
 msgid "Navigation"
 msgstr "Навигация"
 
 #: templates/reservation/blank.html:19
-msgid "Home"
-msgstr "Главная страница"
+msgid "Basket"
+msgstr "Корзина"
 
 #: templates/reservation/blank.html:20
 msgid "Search for a hotel"
 msgstr "Поиск отеля"
+
+#: templates/reservation/booking.html:16
+msgid "I am booking"
+msgstr "Я бронирую"
 
 #: templates/reservation/booking_hotel.html:5
 #: templates/reservation/selection.html:5
 msgid "Hotel reservation"
 msgstr "Бронирование отеля"
 
-#: templates/reservation/booking_hotel.html:9
-#: templates/reservation/selection.html:9
-msgid "booking greets you"
-msgstr "booking приветсвует Вас"
-
-#: templates/reservation/booking_hotel.html:13
+#: templates/reservation/booking_hotel.html:12
 msgid "Find a hotel"
 msgstr "Подобрать отель"
 
-#: templates/reservation/selection.html:10
+#: templates/reservation/selection.html:9
 msgid "Selected hotels according to your request"
 msgstr "Подобраны отели согласно Вашего запроса"
 
-#: templates/reservation/selection.html:16
+#: templates/reservation/selection.html:14
 msgid "Town"
 msgstr "Город"
 
-#: templates/reservation/selection.html:17
+#: templates/reservation/selection.html:15
 msgid "Beds"
 msgstr "Количество койко-мест"
+
+#: templates/reservation/selection.html:25
+msgid "To book"
+msgstr "Бронировать"

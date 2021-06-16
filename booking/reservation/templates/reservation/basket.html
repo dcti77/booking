@@ -5,4 +5,13 @@
 {% block title %}{% trans 'booking greets you' %}{% endblock title %}
 
 {% block content %}
+    <h1>{% trans 'booking greets you' %}</h1>
+    {% for i in form %}
+        <p>Вы забронировали отель {{i.hotel.name}} на {{i.number_of_person}} человека, на {{i.number_of_nights}} ночей, с {{ i.booking_date }}</p>
+        <form action="{% url 'delete_hotel' i.pk %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="{% trans 'Cansel booking' %}">
+        </form>
+        <br><br><br><br>
+    {% endfor %}
 {% endblock content %}

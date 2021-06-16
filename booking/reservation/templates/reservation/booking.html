@@ -13,6 +13,6 @@
     <form action="{% url 'booking' hotel.id %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="I'm booking">
+        <input type="submit" value="{% trans 'I am booking' %}">
     </form>
 {% endblock content %}

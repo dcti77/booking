@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
+
 from .forms import HotelSearchForm, HotelReservationForm
 from hotels.models import Hotel
-from .models import Basket
+from .models import Reservation
 
 
 def reservation_home(request):
@@ -24,12 +25,31 @@ def booking(request, hotel_id):
     if request.method == 'POST':
         form = HotelReservationForm(request.POST)
         if form.is_valid():
-            Basket.objects.create(**form.cleaned_data)
-            return render(request, 'reservation/basket.html')
+            Reservation.objects.create(
+                number_of_person=form.cleaned_data['number_of_person'],
+                number_of_nights=form.cleaned_data['number_of_nights'],
+                booking_date=form.cleaned_data['booking_date'],
+                user=request.user,
+                hotel=Hotel.objects.get(pk=hotel_id),
+                card=form.cleaned_data['card'],
+                valid_thru=form.cleaned_data['valid_thru'],
+            )
+            return redirect('/reservation/basket/')
     else:
         form = HotelReservationForm()
     return render(request, 'reservation/booking.html', {'hotel': hotel, 'form': form})
 
 
 def basket(request):
-    return render(request, 'reservation/basket.html')
+    form = Reservation.objects.all()
+    context = {
+        'form': form
+    }
+    return render(request, 'reservation/basket.html', context=context)
+
+
+def delete_hotel(request, pk):
+    if request.method == 'POST':
+        hotel = Reservation.objects.get(pk=pk)
+        hotel.delete()
+    return redirect('/reservation/basket/')

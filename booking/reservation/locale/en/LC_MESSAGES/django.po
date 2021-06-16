@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-24 19:27+0300\n"
+"POT-Creation-Date: 2021-06-16 19:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,44 +18,86 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: forms.py:5
+#: forms.py:6 templates/reservation/selection.html:11
 msgid "Country"
 msgstr ""
 
-#: forms.py:6
+#: forms.py:7 templates/reservation/selection.html:12
 msgid "Name"
 msgstr ""
 
-#: forms.py:7
+#: forms.py:8 forms.py:15
 msgid "Number_of_person"
 msgstr ""
 
-#: forms.py:8
+#: forms.py:9 forms.py:16
 msgid "Number_of_nights"
 msgstr ""
 
-#: forms.py:9
+#: forms.py:10 forms.py:17
 msgid "Booking_date"
 msgstr ""
 
-#: forms.py:10
+#: forms.py:11 templates/reservation/selection.html:13
 msgid "Rank"
 msgstr ""
 
-#: templates/reservation/booking_hotel.html:9
-#: templates/reservation/selection.html:6
-msgid "Hotel reservation"
+#: forms.py:18
+msgid "Card"
 msgstr ""
 
-#: templates/reservation/booking_hotel.html:14
-#: templates/reservation/selection.html:9
+#: forms.py:19
+msgid "Valid_thru"
+msgstr ""
+
+#: templates/reservation/basket.html:5 templates/reservation/basket.html:8
+#: templates/reservation/booking.html:5 templates/reservation/booking.html:8
+#: templates/reservation/booking_hotel.html:8
+#: templates/reservation/selection.html:8
 msgid "booking greets you"
 msgstr ""
 
-#: templates/reservation/booking_hotel.html:18
+#: templates/reservation/basket.html:11
+msgid "Cansel booking"
+msgstr ""
+
+#: templates/reservation/blank.html:17
+msgid "Navigation"
+msgstr ""
+
+#: templates/reservation/blank.html:19
+msgid "Basket"
+msgstr ""
+
+#: templates/reservation/blank.html:20
+msgid "Search for a hotel"
+msgstr ""
+
+#: templates/reservation/booking.html:16
+msgid "I am booking"
+msgstr ""
+
+#: templates/reservation/booking_hotel.html:5
+#: templates/reservation/selection.html:5
+msgid "Hotel reservation"
+msgstr ""
+
+#: templates/reservation/booking_hotel.html:12
 msgid "Find a hotel"
 msgstr ""
 
-#: templates/reservation/selection.html:10
+#: templates/reservation/selection.html:9
 msgid "Selected hotels according to your request"
+msgstr ""
+
+#: templates/reservation/selection.html:14
+msgid "Town"
+msgstr ""
+
+#: templates/reservation/selection.html:15
+msgid "Beds"
+msgstr ""
+
+#: templates/reservation/selection.html:25
+msgid "To book"
 msgstr ""
