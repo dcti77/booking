@@ -9,8 +9,8 @@ class User(AbstractUser):
     country = models.CharField(max_length=200, verbose_name=gettext_lazy('Country'))
     town = models.CharField(max_length=200, verbose_name=gettext_lazy('Town'))
     phone = models.CharField(max_length=100, unique=True, verbose_name=gettext_lazy('Phone'))
-    card = models.DecimalField(max_digits=16, decimal_places=0, null=True, verbose_name=gettext_lazy('Card'))
-    valid_thru = models.DateField(null=True, verbose_name=gettext_lazy('Valid date'))
+    card = models.DecimalField(max_digits=16, decimal_places=0, verbose_name=gettext_lazy('Card'), blank=True)
+    valid_thru = models.DateField(verbose_name=gettext_lazy('Valid date'), blank=True)
 
     SEX_CHOICE = [("male", "male"), ("female", "female")]
 

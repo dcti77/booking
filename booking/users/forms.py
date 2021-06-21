@@ -19,7 +19,8 @@ class UserProfileCreationForm(UserCreationForm):
 class UserProfileEditForm(UserChangeForm):
     class Meta:
         model = User
-        fields = ['username', 'email', 'photo', 'first_name', 'last_name', 'phone', 'sex', 'country', 'town']
+        fields = ['username', 'email', 'photo', 'first_name', 'last_name', 'phone', 'sex', 'country', 'town',
+                  'card', 'valid_thru']
 
 
 class LoginForm(forms.Form):

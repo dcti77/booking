@@ -6,9 +6,144 @@
 </head>
 {% block content %}
 <h2>Profile Editor</h2>
-<form method="post" action="", enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type = "submit" value = "{% trans 'Edit' %}">
+<div class="form-group">
+    <form method="post" action="">
+        {% csrf_token %}
+        <div class="mb-3">
+            <h3>{% trans 'Profile photo editor' %}</h3>
+            <p class="text-center"><img src="{{ request.user.photo.url }}" class="rounded-circle"
+                                        width="100" height="100"></p>
+                {% if form.photo.errors %}
+                    <ol>
+                        {% for error in form.photo.errors %}
+                        <li><strong>{{ error|escape }}</strong></li>
+                        {% endfor %}
+                    </ol>
+                {% endif %}
+        </div>
+        <div class="mb-3">
+            <input type="file" name="photo">
+        </div>
+        <div class="mb-3">
+            <h3>{% trans 'Username' %}</h3>
+            <input type="text" class="form-control" name="username" value="{{ user.username }}">
+            {% if form.username.errors %}
+                <ol>
+                    {% for error in form.username.errors %}
+                    <li><strong>{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ol>
+            {% endif %}
+        </div>
+        <div class="row g-3 mb-3">
+            <div class="col">
+                <h3 class="form-label">{% trans 'First name' %}</h3>
+                <input type="text" class="form-control" name="first_name" value="{{ user.first_name }}">
+                {% if form.first_name.errors %}
+                    <ol>
+                        {% for error in form.first_name.errors %}
+                        <li><strong>{{ error|escape }}</strong></li>
+                        {% endfor %}
+                    </ol>
+                {% endif %}
+            </div>
+            <div class="col">
+                <h3 class="form-label">{% trans 'Last name' %}</h3>
+                <input type="text" class="form-control" name="last_name" value="{{ user.last_name }}">
+                {% if form.last_name.errors %}
+                    <ol>
+                        {% for error in form.last_name.errors %}
+                        <li><strong>{{ error|escape }}</strong></li>
+                        {% endfor %}
+                    </ol>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row g-3 mb-3">
+            <div class="col">
+                <h3 class="form-label">{% trans 'Email' %}</h3>
+                <input type="text" class="form-control" name="email" value="{{ user.email }}">
+                {% if form.email.errors %}
+                    <ol>
+                        {% for error in form.email.errors %}
+                        <li><strong>{{ error|escape }}</strong></li>
+                        {% endfor %}
+                    </ol>
+                {% endif %}
+            </div>
+            <div class="col">
+                <h3 class="form-label">{% trans 'Phone' %}</h3>
+                <input type="text" class="form-control" name="phone" value="{{ user.phone }}">
+                {% if form.phone.errors %}
+                    <ol>
+                        {% for error in form.phone.errors %}
+                        <li><strong>{{ error|escape }}</strong></li>
+                        {% endfor %}
+                    </ol>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row g-3 mb-3">
+            <div class="col">
+                <h3 class="form-label">{% trans 'Country' %}</h3>
+                <input type="text" class="form-control" name="country" value="{{ user.country }}">
+                {% if form.Country.errors %}
+                    <ol>
+                        {% for error in form.Country.errors %}
+                        <li><strong>{{ error|escape }}</strong></li>
+                        {% endfor %}
+                    </ol>
+                {% endif %}
+            </div>
+            <div class="col">
+                <h3 class="form-label">{% trans 'Town' %}</h3>
+                <input type="text" class="form-control" name="town" value="{{ user.town }}">
+                {% if form.town.errors %}
+                    <ol>
+                        {% for error in form.town.errors %}
+                        <li><strong>{{ error|escape }}</strong></li>
+                        {% endfor %}
+                    </ol>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row g-3 mb-3">
+            <div class="col">
+                <h3 class="form-label">{% trans 'Payments' %}</h3>
+                <h4 class="form-label">{% trans 'Card number' %}</h4>
+                <input type="text" class="form-control" name="card" value="{{ user.card }}">
+                {% if form.card.errors %}
+                    <ol>
+                        {% for error in form.card.errors %}
+                        <li><strong>{{ error|escape }}</strong></li>
+                        {% endfor %}
+                    </ol>
+                {% endif %}
+            </div>
+            <div class="col">
+                <h4 class="form-label">{% trans "Card's valid date" %}</h4>
+                <input type="date" class="form-control" name="valid_thru" value="{{ user.valid_thru }}">
+                {% if form.valid_thru.errors %}
+                    <ol>
+                        {% for error in form.valid_thru.errors %}
+                        <li><strong>{{ error|escape }}</strong></li>
+                        {% endfor %}
+                    </ol>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row g-3 mb-3">
+            <h3 class="form-label">{% trans 'Sex' %}</h3>
+            <p><select>
+
+                <option value="Male">{{ form.sex.0 }}</option>
+                <option value="Female">{{ form.sex.1 }}</option>
+            </select>
+            </p>
+        </div>
+
+        <input type = "submit" value = "{% trans 'Edit' %}">
 </form>
+</div>
+
 {% endblock content %}
