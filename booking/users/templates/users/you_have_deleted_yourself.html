@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load i18n %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans 'Succesfully deleted' %}</title>
+
+</head>
+
+{% block content %}
+You have succesfully deleted your account
+    <div>
+        <a href="{% url 'login' %}">"{% trans 'Login' %}"</a>
+    </div>
+{% endblock content %}

@@ -63,28 +63,18 @@ def user_profile_edit(request):
         'profile': user_profile
     })
 
+
 @login_required(login_url='users/login.html')
 def user_logout(request):
     logout(request)
     return redirect('login')
 
 
-def change_password(request):
-    u = User.objects.get(username=request.user)
+@login_required(login_url='users/login.html')
+def account_del(request):
     if request.method == 'POST':
-        form = ChangePasswordForm(request.POST)
-        if form.is_valid():
-            old_password = request.POST.get("old_password")
-            new_pass = request.POST.get("new_password")
-            new_pass_rep = request.POST.get("new_password_repeat")
-            if check_password(old_password,u.password):
-                return HttpResponse('ok')
-            else:
-                return HttpResponse('bad')
-    else:
-            form = ChangePasswordForm()
-
-    return render(request, 'login/change_password.html',
-              {'form': form, 'user': u})
-
+        u = User.objects.get(id=request.user.id)
+        u.delete()
+        return render(request, 'users/you_have_deleted_yourself.html')
+    return render(request, 'users/account_del.html')
 

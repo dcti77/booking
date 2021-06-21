@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load i18n %}
+<head>
+    <meta charset="UTF-8">
+    <title>Deleting account</title>
+</head>
+{% block content %}
+<div>
+    <form method="post" action="">
+        {% csrf_token %}
+        Are you really want to delete your account?
+        <div>
+            <input type="submit" value="Delete">
+        </div>
+    </form>
+</div>
+
+
+
+
+{% endblock content %}
