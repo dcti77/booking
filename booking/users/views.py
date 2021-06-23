@@ -5,7 +5,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import LoginForm, CreateUserForm, UserProfileEditForm
 from .models import User
-
+import json
+import csv
 
 
 def user_registration_view(request):
@@ -15,7 +16,6 @@ def user_registration_view(request):
         if form.is_valid():
             form.save()
             return redirect('login')
-
     return render(request, 'users/registration.html', {'form': form})
 
 
@@ -77,4 +77,32 @@ def account_del(request):
         u.delete()
         return render(request, 'users/you_have_deleted_yourself.html')
     return render(request, 'users/account_del.html')
+
+
+# @login_required(login_url='users/login.html')
+# def json_get_file(request):
+#     if request.method == 'POST':
+#         data = User.objects.values(id=request.user.id)
+#         json_user = json.dumps(data)
+#         with open ('user_data', 'w') as file:
+#             json.dump(json_user, file, indent=2)
+
+
+@login_required(login_url='users/login.html')
+def user_data_file(request):
+    if request.method == 'GET':
+        data = User.objects.filter(id=request.user.id).values()[0]
+        json_user = json.dumps(data, indent=2, default=str)
+        u = User.objects.get(id=request.user.id)
+        username = u.username
+        response = HttpResponse(
+            json_user,
+            content_type='text/csv',
+            headers={'Content-Disposition': f'attachment; filename="{username}.csv"'},
+        )
+        return response
+
+
+
+
 

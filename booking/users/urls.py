@@ -31,6 +31,7 @@ urlpatterns = [
          auth_views.PasswordChangeView.as_view(template_name='users/password_change_done.html'),
          name='password_change_done'),
 
-    path('account_del/', views.account_del, name='account_del')
+    path('account_del/', views.account_del, name='account_del'),
 
+    path('file_user', views.user_data_file, name="file_user")
 ]
