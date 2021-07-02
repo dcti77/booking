@@ -1,5 +1,7 @@
 from django import forms
+from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy
+from datetime import date
 
 
 class HotelSearchForm(forms.Form):
@@ -17,3 +19,15 @@ class HotelReservationForm(forms.Form):
     booking_date = forms.DateField(label=gettext_lazy('Booking_date'))
     card = forms.DecimalField(max_digits=16, decimal_places=0, label=gettext_lazy('Card'))
     valid_thru = forms.DateField(label=gettext_lazy('Valid_thru'))
+
+    def clean_renewal_date(self):
+        data = self.cleaned_data['booking_date']
+        if data < date.today():
+            raise ValidationError(gettext_lazy('Invalid date - renewal in past'))
+        return data
+
+    def clean_card_valid(self):
+        data = self.cleaned_data['valid_thru']
+        if data < date.today():
+            raise ValidationError(gettext_lazy('Invalid date - renewal in past'))
+        return data
