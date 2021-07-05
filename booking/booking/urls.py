@@ -19,6 +19,9 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf import settings
 from django.conf.urls.static import static
 
+admin.site.site_title = 'Админ-панель booking'
+admin.site.site_header = 'Админ-панель booking'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hotels/', include('hotels.urls')),

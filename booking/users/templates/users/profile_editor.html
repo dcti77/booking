@@ -11,8 +11,10 @@
         {% csrf_token %}
         <div class="mb-3">
             <h3>{% trans 'Profile photo editor' %}</h3>
+            {% if request.user.photo %}
             <p class="text-center"><img src="{{ request.user.photo.url }}" class="rounded-circle"
                                         width="100" height="100"></p>
+            {% endif %}
                 {% if form.photo.errors %}
                     <ol>
                         {% for error in form.photo.errors %}
@@ -138,6 +140,24 @@
 
                 <option value="Male">{{ form.sex.0 }}</option>
                 <option value="Female">{{ form.sex.1 }}</option>
+            </select>
+            </p>
+        </div>
+        <div class="row g-3 mb-3">
+            <h3 class="form-label">{% trans 'Language' %}</h3>
+            <p><select>
+
+                <option value="Male">{{ form.language.0 }}</option>
+                <option value="Female">{{ form.language.1 }}</option>
+            </select>
+            </p>
+        </div>
+        <div class="row g-3 mb-3">
+            <h3 class="form-label">{% trans 'Currency' %}</h3>
+            <p><select>
+
+                <option value="Male">{{ form.currency.0 }}</option>
+                <option value="Female">{{ form.currency.1 }}</option>
             </select>
             </p>
         </div>

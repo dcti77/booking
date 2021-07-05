@@ -37,6 +37,10 @@
                         {% if profile.sex %}
                         <p>{% translate 'Sex' %} {{ profile.sex }}</p>
                         {% endif %}
+
+                        {% if profile.language %}
+                        <p>{% translate 'Language' %} {{ profile.language }}
+                        {% endif %}
     </div>
     <div>
         <a href="{% url 'edit_profile' %}">"{% trans 'Edit profile' %}"</a>

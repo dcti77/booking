@@ -1,12 +1,10 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.hashers import check_password
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import LoginForm, CreateUserForm, UserProfileEditForm
 from .models import User
 import json
-import csv
 
 
 def user_registration_view(request):
@@ -79,15 +77,6 @@ def account_del(request):
     return render(request, 'users/account_del.html')
 
 
-# @login_required(login_url='users/login.html')
-# def json_get_file(request):
-#     if request.method == 'POST':
-#         data = User.objects.values(id=request.user.id)
-#         json_user = json.dumps(data)
-#         with open ('user_data', 'w') as file:
-#             json.dump(json_user, file, indent=2)
-
-
 @login_required(login_url='users/login.html')
 def user_data_file(request):
     if request.method == 'GET':
@@ -103,6 +92,6 @@ def user_data_file(request):
         return response
 
 
-
-
-
+def eur_usd_price(request):
+    if request.method == 'GET':
+        pass

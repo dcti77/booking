@@ -1,6 +1,6 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
-from .models import User
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from .models import User, EmailSender
 from django.utils.translation import gettext_lazy
 
 
@@ -20,9 +20,14 @@ class UserProfileEditForm(UserChangeForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'photo', 'first_name', 'last_name', 'phone', 'sex', 'country', 'town',
-                  'card', 'valid_thru']
+                  'card', 'valid_thru', 'language', 'currency']
 
 
 class LoginForm(forms.Form):
     username = forms.CharField(label=gettext_lazy('Username'), max_length=30)
     password = forms.CharField(label=gettext_lazy('Password'), widget=forms.PasswordInput)
+
+
+class SendEmail(forms.Form):
+    model = EmailSender
+    fields = ['adresses', 'text']
