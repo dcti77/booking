@@ -10,8 +10,8 @@ class Hotel(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=2, default=0)
     rank = models.IntegerField()
 
-    def price_to_eur(self):
-        curr = User.objects.filter(id=request.user.id).currency
+    def price_to_eur(self, user_id):
+        curr = User.objects.filter(id=user_id).currency
         if curr == 'eur':
             price_eur = self.price * Currency.usd_to_eur + 'eur'
             return price_eur

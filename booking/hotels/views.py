@@ -8,7 +8,7 @@ from django.db.models import Q
 def hotel(request):
     if request.method == 'GET':
         print(Hotel.objects.all())
-        return render(request, 'hotels/hotels.html', {'hotels': Hotel.objects.all()})
+        return render(request, 'hotels/hotels.html', {'hotels': Hotel.objects.all()}) # hotels/hotels.html не нашел урла в hotels\urls.py
 
 
 class HotelView(ListView):

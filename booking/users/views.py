@@ -92,6 +92,4 @@ def user_data_file(request):
         return response
 
 
-def eur_usd_price(request):
-    if request.method == 'GET':
-        pass
+

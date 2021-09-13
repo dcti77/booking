@@ -28,6 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# AUTHENTICATION_BACKENDS = ['users.backends.UsernamePhoneEmailBackend']
+
 AUTH_USER_MODEL = "users.User"
 
 # Application definition
@@ -44,6 +46,8 @@ INSTALLED_APPS = [
     'reservation.apps.ReservationConfig',
     "hotels.apps.HotelsConfig",
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
